@@ -76,3 +76,71 @@ Unused files
 rm src/*.css
 rm -r src/assets
 ```
+
+## React convention
+
+Folder -> name is same as the actual Component
+
+split into `pages` and stand-alone `components` folders
+
+## dotenv pitfall
+
+dotenv-safe -> `.env.example`
+
+changing `.env` -> does not restart express
+
+## debug in express
+
+In server.js -> `const debug = require("debug")("mern:server");`
+In `config/database.js` -> `const debug = require("debug")("mern:config:database");`
+
+In package.json change to
+
+`"dev:express": "DEBUG=mern:* node --watch server.js",`
+
+## debug in react
+
+in `App.js` as well as every other file you want to log
+
+```js
+import debug from "debug";
+
+const log = debug("mern-50:pages:App:App");
+```
+
+in `main.jsx` -> write once -> `localStorage.debug = "mern-50:*";`
+
+## Structure
+
+React -> src -> pages / components etc
+Express -> server.js, models, controllers etc
+
+Project
+--> React
+--> Express
+
+## Proxy setup
+
+In `vite.config.js`, change to
+
+```js
+import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
+  },
+});
+```
+
+## Deploy -> Vercel
+
+## Routing
+
+React -> React Router -> /movies
+Express -> ALL should be /api/movies
