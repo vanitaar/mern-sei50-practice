@@ -65,3 +65,14 @@ in `package.json` add to "scripts":
     "dev:express": "node --watch server.js",
     "dev:express-win": "nodemon server.js",
 ```
+
+## Clean up
+
+`main.js` -> remove CSS
+
+Unused files
+
+```bash
+rm src/*.css
+rm -r src/assets
+```
