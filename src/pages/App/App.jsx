@@ -3,6 +3,7 @@ import { useState } from "react";
 import AuthPage from "../AuthPage/AuthPage";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
+import { Route, Routes } from "react-router-dom";
 
 const log = debug("mern:pages:App:App");
 
@@ -22,8 +23,10 @@ function App() {
   return (
     <>
       <main className="App">App</main>
-      <NewOrderPage />
-      <OrderHistoryPage />
+      <Routes>
+        <Route path="/orders" element={<OrderHistoryPage />}></Route>
+        <Route path="/orders/new" element={<NewOrderPage />}></Route>
+      </Routes>
     </>
   );
 }
