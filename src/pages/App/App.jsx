@@ -10,7 +10,7 @@ const log = debug("mern:pages:App:App");
 
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null); //set as empty {} for testing //if not leave blank === explicitly state null --> show authpage
   log("user %o", user);
 
   if (!user) {

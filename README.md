@@ -144,3 +144,9 @@ export default defineConfig({
 
 React -> React Router -> /movies
 Express -> ALL should be /api/movies
+
+## Why Class Components
+
+Last time -> functional components have NO hooks
+
+have to use this.state
