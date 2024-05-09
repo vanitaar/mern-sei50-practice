@@ -4,12 +4,13 @@ import AuthPage from "../AuthPage/AuthPage";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import { Route, Routes } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
 
 const log = debug("mern:pages:App:App");
 
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
   log("user %o", user);
 
   if (!user) {
@@ -22,11 +23,13 @@ function App() {
 
   return (
     <>
-      <main className="App">App</main>
-      <Routes>
-        <Route path="/orders" element={<OrderHistoryPage />}></Route>
-        <Route path="/orders/new" element={<NewOrderPage />}></Route>
-      </Routes>
+      <main className="App">
+        <NavBar />
+        <Routes>
+          <Route path="/orders" element={<OrderHistoryPage />}></Route>
+          <Route path="/orders/new" element={<NewOrderPage />}></Route>
+        </Routes>
+      </main>
     </>
   );
 }
