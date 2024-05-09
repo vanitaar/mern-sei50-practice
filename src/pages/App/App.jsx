@@ -11,10 +11,17 @@ function App() {
   const [user, setUser] = useState();
   log("user %o", user);
 
+  if (!user) {
+    return (
+      <main className="App">
+        <AuthPage />
+      </main>
+    );
+  }
+
   return (
     <>
       <main className="App">App</main>
-      <AuthPage />
       <NewOrderPage />
       <OrderHistoryPage />
     </>
