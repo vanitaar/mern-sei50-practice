@@ -150,3 +150,24 @@ Express -> ALL should be /api/movies
 Last time -> functional components have NO hooks
 
 have to use this.state
+
+## Sign UP
+
+### React
+
+- `/` -> AuthPage -> SignUpForm
+- User fill in the SignUpForm -> onSubmit
+- preventDefault() -> users-service -> users-api -> FETCH
+
+Fetch -> `/api/users`, POST + JSON Body (Bruno also)
+
+### Express
+
+`server.js` -> `/api/users` -> usersRouter
+usersRouter -> `/` (`/api/users`) + POST -> usersController.create
+create -> req.body -> res.json(body) //\* Not right
+
+### Back to React
+
+users-api -> JSON -> users-service
+users-service -> SignUpForm (onSubmit) -> console.log -> Not right

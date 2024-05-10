@@ -1,4 +1,9 @@
+import debug from "debug";
 import { Component } from "react";
+import { signUp } from "../../utilities/users-service";
+
+const log = debug("mern:components:SignUpForm");
+
 // class component example vs using the usual functional component
 export default class SignUpForm extends Component {
   state = {
@@ -14,9 +19,20 @@ export default class SignUpForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    alert(JSON.stringify(this.state)); //temporarily // need tofire fetch
+    // alert(JSON.stringify(this.state)); //temporarily // need tofire fetch
+
+    const formData = { ...this.state };
+    delete formData.error;
+    delete formData.confirm;
+
+    try {
+      const user = await signUp(formData);
+      log("user: %o", user);
+    } catch (error) {
+      this.setState({ error: "Sign Up Failed" });
+    }
   };
 
   render() {
@@ -66,6 +82,7 @@ export default class SignUpForm extends Component {
           <br />
 
           <button>Sign Up</button>
+          <p>{this.state.error} </p>
         </fieldset>
       </form>
     );
