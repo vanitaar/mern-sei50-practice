@@ -171,3 +171,28 @@ create -> req.body -> res.json(body) //\* Not right
 
 users-api -> JSON -> users-service
 users-service -> SignUpForm (onSubmit) -> console.log -> Not right
+
+## JWT
+
+### Security Terms
+
+encrypt <-> decrypt : Cesear Cypher
+plain text + key -> algo -> encrypted text
+
+encode -> change format (no key) -> decode
+
+hashing -> algo (text) --> hash
+
+- one way
+- fast -> compared to encryption
+- same input--> same output
+
+in mongoose there is a middleware --> to transform document
+to prevent passwordfrom showing up in response instead of delete.password
+
+org use hash and that's why they ask to reset password instead of providing u old pw, since our pw are stored as hash
+
+Athentication =>
+Authorization =>
+
+npm i bcrypt
