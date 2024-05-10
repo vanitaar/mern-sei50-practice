@@ -19,6 +19,7 @@ export const signUp = async (userData) => {
     // res.json() will resolve to the JWT
     return res.json();
   } else {
+    log("error: Invalid Sign Up");
     throw new Error("Invalid Sign Up");
   }
 };
