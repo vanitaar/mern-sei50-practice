@@ -28,11 +28,11 @@ export default class SignUpForm extends Component {
     delete formData.confirm;
 
     try {
-      // const user = await signUp(formData);
-      // log("user: %o", user);
-      const token = await signUp(formData);
-      log("token: %o", token);
-      localStorage.setItem("token", token);
+      const user = await signUp(formData);
+      log("user: %o", user);
+      // const token = await signUp(formData);
+      // log("token: %o", token);
+      // localStorage.setItem("token", token); // shift to user-service
     } catch (error) {
       this.setState({ error: "Sign Up Failed" });
     }
