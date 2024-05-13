@@ -1,5 +1,9 @@
 const debug = require("debug")("mern:controllers:api:usersController");
 const User = require("../../models/User");
+const jwt = require("jsonwebtoken");
+
+const createJWT = (user) =>
+  jwt.sign({ user }, process.env.SECRET, { expiresIn: "2m" });
 
 const create = async (req, res) => {
   debug("body: %o", req.body);
@@ -13,7 +17,9 @@ const create = async (req, res) => {
     });
 
     debug("user: %o", user);
-    res.status(201).json({ user });
+    const token = createJWT(user);
+    // res.status(201).json({ user });
+    res.status(201).json(token);
   } catch (error) {
     debug("error: %o", error);
     res.status(500).json({ error });
