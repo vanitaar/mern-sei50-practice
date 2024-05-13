@@ -30,6 +30,7 @@ export default class SignUpForm extends Component {
     try {
       const user = await signUp(formData);
       log("user: %o", user);
+      this.props.setUser(user); //eslint error setUser missing in props validation
       // const token = await signUp(formData);
       // log("token: %o", token);
       // localStorage.setItem("token", token); // shift to user-service
