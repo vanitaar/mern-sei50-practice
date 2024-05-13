@@ -1,0 +1,20 @@
+meta {
+  name: LoginNoUser
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/api/users/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  "email":
+  "rando@hogwarts.com",
+  "password":
+  "muggle"
+  }
+}

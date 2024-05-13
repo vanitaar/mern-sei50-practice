@@ -1,23 +1,21 @@
 meta {
-  name: SignUp
+  name: LoginWrongPw
   type: http
-  seq: 2
+  seq: 4
 }
 
 post {
-  url: http://localhost:3000/api/users
+  url: http://localhost:3000/api/users/login
   body: json
   auth: none
 }
 
 body:json {
   {
-  
-  "name":
-  "ginny weasly",
   "email":
   "ginnyweasly@hogwarts.com",
   "password":
-  "lovehp"
+  "hatehp"
   }
+  
 }
