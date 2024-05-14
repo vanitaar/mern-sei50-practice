@@ -1,10 +1,13 @@
 import { login } from "../../utilities/users-service";
+import { useNavigate } from "react-router-dom";
 import debug from "debug";
 
 const log = debug("mern:components:LoginForm");
 
-export default function LoginForm() {
-  const handleSubmit = (event) => {
+export default function LoginForm({ setUser }) {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -12,7 +15,9 @@ export default function LoginForm() {
 
     log("data: %o", data);
     const { email, password } = data;
-    login(email, password);
+    const user = await login(email, password);
+    setUser(user);
+    navigate("/orders");
   };
 
   return (

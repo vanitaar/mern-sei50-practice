@@ -1,0 +1,21 @@
+meta {
+  name: CheckToken
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:3000/api/users/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  "email":
+  "ginnyweasly@hogwarts.com",
+  "password":
+  "lovehp"
+  }
+  
+}

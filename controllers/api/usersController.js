@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const createJWT = (user) =>
-  jwt.sign({ user }, process.env.SECRET, { expiresIn: "2m" });
+  jwt.sign({ user }, process.env.SECRET, { expiresIn: "20m" });
 
 const create = async (req, res) => {
   debug("body: %o", req.body);
