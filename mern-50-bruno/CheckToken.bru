@@ -4,10 +4,14 @@ meta {
   seq: 6
 }
 
-post {
-  url: http://localhost:3000/api/users/login
-  body: json
-  auth: none
+get {
+  url: http://localhost:3000/api/users/check-token
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NDJkNjg4ZGQ5Zjc1ZjIyNmY1MTg1ZSIsIm5hbWUiOiJnaW5ueSB3ZWFzbHkiLCJlbWFpbCI6Imdpbm55d2Vhc2x5QGhvZ3dhcnRzLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjQtMDUtMTRUMDM6MTI6MDguOTY3WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDUtMTRUMDM6MTI6MDguOTY3WiIsIl9fdiI6MH0sImlhdCI6MTcxNTY2NDc0NiwiZXhwIjoxNzE1NjY1OTQ2fQ.-PgqTuPd9NHNGG2Jm5zTkeg_-sUG0ZU9LUPEwO0jMak
 }
 
 body:json {
